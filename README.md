@@ -1,1 +1,5 @@
-just install cargo and rustc, which you can install from the nix flake if you use nixos and will be automatically installed if you use nixos and direnv. Then run with ```cargo run --release```
+- Install cargo and rustc. these are included in the nix flake and .envrc for nixos and direnv users
+- Run with 
+```bash
+cargo run --release
+```
