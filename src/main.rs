@@ -42,10 +42,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             for link in response.html().select(&self.link_selector) {
                 if let Some(href) = link.value().attr("href") {
                     if let Ok(url) = response.response_url.join(href) {
-                        if self.visited.contains(&url) {
+                        if !self.visited.contains(&url) {
+                            self.visited.insert(url.clone());
                             crawler.visit(url);
-                        } else {
-                            self.visited.insert(url);
                         }
                     }
                 }
