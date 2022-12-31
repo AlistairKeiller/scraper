@@ -34,7 +34,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         ) -> Result<Option<Self::Output>> {
             std::fs::create_dir_all(["data/", response.request_url.path()].concat())?;
             let mut wtr =
-                Writer::from_path(["data/", response.request_url.path(), "data.csv"].concat())?;
+                Writer::from_path(["data/", response.request_url.path(), "/data.csv"].concat())?;
             for paragraph in response.html().select(&self.paragraph_selector) {
                 wtr.write_record(&[paragraph.inner_html()])?;
             }
