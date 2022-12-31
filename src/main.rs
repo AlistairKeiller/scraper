@@ -25,7 +25,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     impl Scraper for Explorer {
         type Output = (usize, Url);
-        type State = bool; // empty
+        type State = ();
 
         fn scrape(
             &mut self,
@@ -63,7 +63,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     while let Some(output) = collector.next().await {
         if let Ok((depth, url)) = output {
-            println!("Visited {} at depth: {}", url, depth);
+            println!("Visited {url} at depth: {depth}");
         }
     }
 
