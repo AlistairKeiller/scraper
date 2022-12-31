@@ -21,15 +21,8 @@
           buildInputs = [
             openssl
             pkg-config
-            exa
-            fd
             rust-bin.beta.latest.default
           ];
-
-          shellHook = ''
-            alias ls=exa
-            alias find=fd
-          '';
         };
       }
     );
